@@ -1,0 +1,124 @@
+:root{
+	--base-body-font-size: 1rem;
+	--base-line-height: 1.5;
+
+	--space-0: 0;
+	--space-1: 0.25rem; /* 4px (assuming html font-size is 16px) */
+	--space-2: 0.5rem;  /* 8px */
+	--space-3: 1rem;    /* 16px */
+	--space-4: 2rem;    /* 32px */
+	--space-5: 3rem;    /* 48px */
+	--space-6: 4rem;    /* 64px */
+
+	/* --- Typography Scale (Minor Third - 1.200 ratio) --- */
+	--font-size-ratio: 1.200;
+
+	--font-size-xsmall: calc(var(--base-body-font-size) / var(--font-size-ratio) / var(--font-size-ratio));                                                                                                      /* 1rem / 1.2^2 */
+	--font-size-small : calc(var(--base-body-font-size) / var(--font-size-ratio));                                                                                                                               /* 1rem / 1.2 */
+	--font-size-body  : var(--base-body-font-size);                                                                                                                                                              /* 1rem */
+	--font-size-h6    : calc(var(--base-body-font-size) * var(--font-size-ratio));                                                                                                                               /* 1rem * 1.2 */
+	--font-size-h5    : calc(var(--base-body-font-size) * var(--font-size-ratio) * var(--font-size-ratio));                                                                                                      /* 1rem * 1.2^2 */
+	--font-size-h4    : calc(var(--base-body-font-size) * var(--font-size-ratio) * var(--font-size-ratio) * var(--font-size-ratio));                                                                             /* 1rem * 1.2^3 */
+	--font-size-h3    : calc(var(--base-body-font-size) * var(--font-size-ratio) * var(--font-size-ratio) * var(--font-size-ratio) * var(--font-size-ratio));                                                    /* 1rem * 1.2^4 */
+	--font-size-h2    : calc(var(--base-body-font-size) * var(--font-size-ratio) * var(--font-size-ratio) * var(--font-size-ratio) * var(--font-size-ratio) * var(--font-size-ratio));                           /* 1rem * 1.2^5 */
+	--font-size-h1    : calc(var(--base-body-font-size) * var(--font-size-ratio) * var(--font-size-ratio) * var(--font-size-ratio) * var(--font-size-ratio) * var(--font-size-ratio) * var(--font-size-ratio));  /* 1rem * 1.2^6 */
+
+/* --- Font Weights (Using numerical values for variable fonts) --- */
+	--font-weight-thin      : 100;
+	--font-weight-extralight: 200;
+	--font-weight-light     : 300;
+	--font-weight-regular   : 400;  /* Standard */
+	--font-weight-medium    : 500;
+	--font-weight-semibold  : 600;
+	--font-weight-bold      : 700;
+	--font-weight-extrabold : 800;
+	--font-weight-black     : 900;
+
+/* Semantic font weights for easier use */
+	--font-weight-body      : var(--font-weight-regular);
+	--font-weight-heading   : var(--font-weight-semibold);
+	--font-weight-strong    : var(--font-weight-bold);
+	--font-weight-light-text: var(--font-weight-light);
+
+	/* --- Project-Specific Raw Color Assignments --- */
+	/* These map your chosen brand colors to the generic raw color variables
+		 defined as placeholders in _theme.css. This is where you configure your palette. */
+	--color-primary-raw     : oklch(72.962% 0.08943 186.186);
+	--color-secondary-raw   : oklch(0.3178 0.0162 229.54);
+	--color-tertiary-raw    : oklch(0.9702 0 0);
+	--color-foreground-raw  : oklch(51.73% 0.00006 271.152);
+	--color-background-raw  : oklch(25.911% 0.00472 325.421);
+	--color-surface-raw     : oklch(31.597% 0.0045 325.31);
+	--color-accent-raw      : oklch(62.659% 0.07771 79.872);
+	--color-surface-top-raw : oklch(39.479% 0.0021 67.283);
+	--color-danger-raw      : oklch(68.374% 0.1351 10.748);
+
+
+	/* --- Semantic Theme Colors (Theme Agnostic - these define your brand's palette) --- */
+	/* These map to the base color (raw) variables, which are now project-specific. */
+	--theme-color-primary   : var(--color-primary-raw);
+	--theme-color-secondary : var(--color-secondary-base);
+	--theme-color-tertiary  : var(--color-tertiary-raw);
+
+	--theme-color-background: var(--color-background-raw);
+	--theme-color-surface: var(--color-surface-raw);
+	--theme-color-foreground: var(--color-foreground-raw);
+	--theme-color-accent: var(--color-accent-raw);
+	--theme-color-surface-top: var(--color-surface-top-raw);
+	--theme-color-danger: var(--color-danger-raw);
+
+	--theme-size-button-width: calc(1rem * 5);
+	--theme-size-max-width: 500px;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+html{
+	font-size: 100%;
+}
+
+body {
+	background-color: var(--theme-color-background);
+	display: flex;
+	place-items: center;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+#root{
+	width: 100%;
+}
+
+/* Apply font sizes and weights to headings and text elements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: var(--font-weight-heading);
+}
+
+h1 { font-size: var(--font-size-h1); }
+h2 { font-size: var(--font-size-h2); }
+h3 { font-size: var(--font-size-h3); }
+h4 { font-size: var(--font-size-h4); }
+h5 { font-size: var(--font-size-h5); }
+h6 { font-size: var(--font-size-h6); }
+
+p {
+	font-size: var(--font-size-body);
+	font-weight: var(--font-weight-body);
+}
+
+small {
+	font-size: var(--font-size-small);
+	font-weight: var(--font-weight-light-text);
+}

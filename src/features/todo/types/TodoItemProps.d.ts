@@ -1,0 +1,3 @@
+interface TodoItemProps {
+	todo: Todo;
+}
